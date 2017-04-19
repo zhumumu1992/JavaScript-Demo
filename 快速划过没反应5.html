@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>快速划过没反应</title>
+		<style>
+		    body{padding: 100px;}
+			*{margin: 0; padding: 0;}
+			input{width: 100px; height: 100px; background: #ccc;}
+			div{width: 200px; height: 200px; background: #f90;
+			    display: none;}
+		</style>
+		<script>
+		window.onload = function(){
+			var obtn = document.getElementById('btn');
+			var obox = document.getElementById('box');
+			var timer = null;
+			
+			obtn.onmouseover = function(){
+				timer = setTimeout(function(){
+					obox.style.display = 'block';
+					
+				}, 100)
+				
+			}
+			
+			obtn.onmouseout = function(){
+				clearTimeout(timer);
+				obox.style.display = 'none';
+				
+			}
+			
+			
+		}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" id="btn" value="快滑滑" />
+		<div id="box"></div>
+	</body>
+
+</html>

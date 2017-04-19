@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>延迟广告一</title>
+		<style>
+			body{background: url(1.jpg);}
+			*{margin: 0; padding: 0;}
+			div{width: 799px; height: 300px; background: #f90;
+				margin: 0 auto; display: none; margin-top: 100px;}
+			div a img{width: 799px; height: 300px;}
+		</style>
+		<script>
+			window.onload = function(){
+				var obox = document.getElementById('box');
+				var timer = null;
+				
+				setTimeout(function(){
+					obox.style.display = 'block';
+					
+					timer = setTimeout(function(){
+						obox.style.display = 'none';
+					}, 3000)
+					
+				}, 3000)
+				
+				obox.onmouseover = function(){
+					clearTimeout(timer);
+				}
+				
+				obox.onmouseout = function(){
+					setTimeout(function(){
+						obox.style.display = 'none';
+					}, 2000)
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<a href="#"><img src="2.jpg" /></a>
+		</div>
+	</body>
+
+</html>

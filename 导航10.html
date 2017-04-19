@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>导航</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			.father{width: 303px; height: 30px; margin: 100px auto;}
+			ul li{float: left; margin-left: -1px;}
+			.father li{list-style: none; width: 100px; height: 30px; 
+			           border: 1px solid red; background: #ccc;
+			           line-height: 30px; text-align: center;}
+			.father ul>li{background: #f90;}
+			.father ul{display: none;} 
+		</style>
+		<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box').children;
+			
+			for(var i=0;i<oBox.length;i++){
+				oBox[i].onmouseover = function(){
+					var oUl = this.getElementsByTagName('ul')[0];
+					this.style.background = '#f90';
+					if(oUl){
+						oUl.style.display = 'block';
+					}
+				}
+				
+				oBox[i].onmouseout = function(){
+					var oUl = this.getElementsByTagName('ul')[0];
+					this.style.background = '#ccc';
+					if(oUl){
+						oUl.style.display = 'none';
+					}
+				}
+			}
+			
+			var oUl2 = document.getElementsByTagName('ul')[1];
+			var aLi2 = oUl2.getElementsByTagName('li');
+			
+			for(var i=0; i<aLi2.length; i++){
+				aLi2[i].onmouseover = function(){
+					this.style.background = 'red';
+				}
+			}
+			for(var i=0; i<aLi2.length; i++){
+				aLi2[i].onmouseout = function(){
+					this.style.background = '#f90';
+				}
+			}
+		}
+		</script>
+	</head>
+
+	<body>
+		<ul class="father" id="box">
+			<li>首页</li>
+			<li>简介
+				<ul>
+					<li>唐门</li>
+					<li>五毒</li>
+					<li>天香</li>
+					<li>神威</li>
+				</ul>
+			</li>
+			<li>关于我们</li>
+		</ul>
+	</body>
+
+</html>

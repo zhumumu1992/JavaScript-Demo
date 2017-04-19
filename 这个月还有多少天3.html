@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>这个月还有多少天</title>
+		<script>
+		window.onload = function(){
+			var oDate = new Date();
+			var oDate2 = new Date();
+			
+			oDate.setMonth(oDate.getMonth()+1,0);
+			var total = oDate.getDate();
+			var total2 = oDate2.getDate();
+			
+			alert(total - total2);
+		}	
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

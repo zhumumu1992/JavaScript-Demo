@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>图片延迟加载</title>
+		<style>
+			*{margin: 0; padding: 0;}
+			ul{width: 800px; margin: 0 auto;}
+			li{list-style: none; width: auto; height: 100%;
+			   border: 1px solid red; float: left; margin: 10px;}
+			img{display: block; width: auto; height: 100%;}
+		</style>
+		<script>
+		window.onload = window.onresize = window.onscroll = function(){
+			var aImg = document.getElementsByTagName('img');
+			
+			var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+			var clientHeight = document.documentElement.clientHeight;
+			var clientBottom = clientHeight + scrollTop;
+			
+			for(var i=0; i<aImg.length; i++){
+				if(aImg[i].offsetTop <= clientBottom){
+					var _src = aImg[i].getAttribute('_src');
+					aImg[i].src = _src;
+				}
+				
+			}
+		}	
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li><img _src="images/1.jpg"/></li>
+			<li><img _src="images/2.jpg"/></li>
+			<li><img _src="images/3.jpg"/></li>
+			<li><img _src="images/4.jpg"/></li>
+			<li><img _src="images/5.jpg"/></li>
+			<li><img _src="images/6.jpg"/></li>
+			<li><img _src="images/7.jpg"/></li>
+			<li><img _src="images/8.jpg"/></li>
+			<li><img _src="images/9.jpg"/></li>
+			<li><img _src="images/10.jpg"/></li>
+			<li><img _src="images/11.jpg"/></li>
+			<li><img _src="images/12.jpg"/></li>
+			<li><img _src="images/13.jpg"/></li>
+			<li><img _src="images/14.jpg"/></li>
+			<li><img _src="images/15.jpg"/></li>
+			<li><img _src="images/16.jpg"/></li>
+			<li><img _src="images/17.jpg"/></li>
+			<li><img _src="images/18.jpg"/></li>
+			<li><img _src="images/19.jpg"/></li>
+			<li><img _src="images/20.jpg"/></li>
+			<li><img _src="images/21.jpg"/></li>
+			<li><img _src="images/22.jpg"/></li>
+		</ul>
+	</body>
+
+</html>

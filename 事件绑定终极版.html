@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>事件绑定终极版</title>
+		<script>
+			window.onload = function(){
+				var oBtn = document.getElementById('btn');
+
+				addEvent(oBtn, 'click', function(){
+					alert(1);
+				})
+
+				addEvent(oBtn, 'click', function(){
+					alert(2);
+				})
+
+				function addEvent(obj, sEv, fn){
+					if(obj.addEventListener){
+						obj.addEventListener(sEv, fn, false);
+					} else{
+						obj.attachEvent('on'+sEv, fn);
+					}
+				}
+				
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="btn" id="btn" />
+	</body>
+
+</html>

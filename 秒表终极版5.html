@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>秒表终极版</title>
+		<script>
+		window.onload = function(){
+			var otext = document.getElementsByTagName('input')[0]
+			var ostart = document.getElementsByTagName('input')[1]
+			var ostop = document.getElementsByTagName('input')[2]
+			var oreset = document.getElementsByTagName('input')[3]
+			var timer = null;	
+			var n = 0;
+			
+			ostart.onclick = function(){
+				ostart.disabled = true;
+				timer = setInterval(function(){
+					n++;
+					var m = parseInt(n/60)
+					var s = n%60
+					otext.value = tudub(m)+':'+tudub(s);
+					
+				}, 17)
+				
+			}
+			
+			ostop.onclick = function(){
+				ostart.disabled = false;
+				clearInterval(timer);
+				
+			}
+			
+			oreset.onclick = function(){
+				n = 0;
+				ostart.disabled = false;
+				clearInterval(timer);
+				otext.value = '00:00';
+				
+			}
+			
+			function tudub(n){
+				return n>=10 ? ''+n : '0'+n;
+				
+			}
+			
+		}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" value="00:00" id="text"/>
+		<input type="button" value="start" id="start"/>
+		<input type="button" value="stop" id="stop"/>
+		<input type="button" value="reset" id="reset"/>
+	</body>
+
+</html>

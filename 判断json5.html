@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>判断json</title>
+		<script>
+			var json = {
+				'one':'怕失去你就要更珍惜',
+				'two':'到底是因为还是所以',
+				'three':'听了看了那么多道理',
+				'four':'也没找到人生的意义'
+			}
+			
+			for(name in json){
+				if(name == 'one'){
+					alert('万万没想到');
+				}
+			}
+			
+			if('one' in json){
+				alert(true);
+			}else{
+				alert(false);
+			}
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

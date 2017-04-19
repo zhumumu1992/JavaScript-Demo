@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>简易计算器</title>
+		<script>
+			window.onload = function() {
+				var oText1 = document.getElementById('text1');
+				var oText2 = document.getElementById('text2');
+				var oSelect = document.getElementById('sel');
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = function() {
+					var a = parseInt(oText1.value);
+					var b = parseInt(oText2.value);
+					var oSelect = document.getElementById('sel').value;
+					if (oSelect == '+') {
+						alert(a + b);
+					} else if (oSelect == '-') {
+						alert(a - b);
+					} else if (oSelect == '*') {
+						alert(a * b);
+					} else {
+						alert(a / b);
+					}
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<input type="text" id="text1" value="" />
+		<select id="sel">
+	<option value="+">+</option>
+	<option value="-">-</option>
+	<option value="*">*</option>
+	<option value="/">/</option>
+</select>
+		<input type="text" id="text2" value="" />
+		<input type="button" value="计算" id="btn" />
+	</body>
+
+</html>

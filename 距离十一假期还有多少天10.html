@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>距离十一假期还有多少天</title>
+		<script>
+		window.onload = function(){
+			var oFature = new Date();
+			oFature.setMonth(9,1);
+			oFature.setHours(0,0,0,0);
+			
+			tickDown();
+			
+			setInterval(tickDown,1000);
+			
+			function tickDown(){
+				var oNow = new Date();
+				
+				var total = (oFature.getTime() - oNow.getTime())/1000;
+				
+				var day = parseInt(total/86400);
+				total%=86400;
+				
+				var hours = parseInt(total/3600);
+				total%=3600;
+				
+				var min = parseInt(total/60);
+				total%=60;
+				
+				var s = parseInt(total);
+				
+				var str = '距离十一假期还有:'+todub(day)+'天'+todub(hours)+'小时'+todub(min)+'分'+todub(s)+'秒';
+				
+				document.body.innerHTML = str;
+			}
+			
+			function todub(n){
+				return n>=10 ? ''+n : '0'+n;
+			}
+			
+			
+		}	
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

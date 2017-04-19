@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>鼠标事件</title>
+		<script>
+		window.onload = function(){
+			var oDown = document.getElementById('down');
+			var oNum = document.getElementById('num');
+			var oUp = document.getElementById('up');
+			var n = 0;
+			var timer = null;
+			
+			oNum.onblur = function(){
+		        n = this.value;
+	        }
+			
+			oUp.onmousedown = function(){
+				timer = setInterval(function(){
+					n++;
+					oNum.value = n;
+				}, 100)
+				
+			}
+			
+			oDown.onmousedown = function(){
+				timer = setInterval(function(){
+					n--;
+					oNum.value = n;
+				}, 100)
+				
+			}
+			
+			oUp.onmouseup = oDown.onmouseup = function(){
+				clearInterval(timer);
+			}
+			
+			
+			
+			
+			
+			
+		}
+		</script>
+	</head>
+
+	<body>
+		<input type="button"  id="down" value="-" />
+		<input type="text"  id="num" value="0" />
+		<input type="button"  id="up" value="+" />
+	</body>
+
+</html>

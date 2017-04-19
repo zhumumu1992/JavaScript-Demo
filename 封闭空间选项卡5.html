@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>封闭空间选项卡</title>
+		<style>
+		   *{margin: 0;padding: 0;}
+			.box{width: 380px; height: 200px; border: 1px solid red;
+				 margin: 50px auto; border-radius: 5px; text-align: center;
+				 position: relative;}
+			.box div{width: 300px; height: 150px; background: #04F1F9;
+				     margin: 10px auto; text-align: center; line-height: 150px;
+				     font-size: 36px; font-weight: bold; color: #000;
+				     display: none;}
+			input{width: 45px; margin-top: 10px;}
+			.active{width: 80px; background: #0AECFF;}
+			.box .show{display: block;}
+		</style>
+		<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var aBtn = document.getElementsByTagName('input');
+			var aDiv = oBox.getElementsByTagName('div');
+			
+			for(var i=0; i<aBtn.length; i++){
+				(function(index){
+					aBtn[i].onclick = function(){
+						for(var i=0; i<aBtn.length; i++){
+							aBtn[i].className = '';
+							aDiv[i].className = '';
+						}
+						aBtn[index].className = 'active';
+						aDiv[index].className = 'show';
+					}
+				})(i)
+			}
+			
+			//alert(i);
+			//(function(接受那个参数){写内容})(传参)
+			
+		}	
+		</script>
+
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<input type="button" value="远程" class="active" />
+			<input type="button" value="近战" />
+			<input type="button" value="奶妈" />
+			<input type="button" value="坦克" />
+			<input type="button" value="刺客" />
+			<div class="show">唐门</div>
+			<div>太白</div>
+			<div>天香</div>
+			<div>神威</div>
+			<div>五毒</div>
+		</div>
+	</body>
+
+</html>

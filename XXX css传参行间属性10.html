@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css传参行间属性</title>
+		<style>
+			div{width: 100px; height: 100px; background: #ccc;
+			    margin: 100px auto; text-align: center;}
+		</style>	
+		<script>
+		//要自学的  git svn react angular bootstrp linux glup grunt less webpack...
+		
+		window.onload = function(){
+			//传两个参数的时候是弹出来它的行间属性
+			//传三个参数的时候是设置属性
+			//css(obj,'width');
+			//css(obj,'width','300px');
+			
+			var oBox = document.getElementById('box');
+			
+			oBox.onclick = function(){
+				css(oBox,{
+					'width':'400px',
+					'height':'300px',
+					'background':'#04e6fc',
+					'color':'black',
+					'fontSize':'20px',
+					'lineHeight':'300px',
+					'textAlign':'center'
+				})
+				
+			}
+			
+			function getStyle(obj,sName){
+				return obj.currentStyle ? obj.currentStyle[sName]
+                                        : getComputedStyle(obj,false)[sName];
+			}
+			
+			function css(obj,sName,sValue){
+				if(arguments.length == 2){
+					if(typeof(arguments[1]) == 'string'){
+						alert(getStyle(obj,sName));
+					}else{
+						var json = arguments[1];
+						for(name in json){
+							obj.style[name] = json[name];
+						}
+					}
+				}else{
+					obj.style[sName] = sValue;
+				}
+				
+			}
+			
+			
+		}	
+		</script>
+	</head>
+	<body>
+		<div id="box">我想在海边有一座房子，面朝大海春暖花开</div>
+	</body>
+</html>

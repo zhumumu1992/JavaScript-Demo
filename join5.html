@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>join</title>
+		<script>
+		    var arr = [13,12,3,45,67,8,9,10];
+		    var arr2 = ['a','b'];
+		    
+		    //var str = arr.join('/'); //数组变成字符串   //没有保存住状态必须赋值给一个新的的变量
+	        //alert(str);
+	        
+		    //arr.push('@@');//从后面添加
+		    //arr.unshift('%%');  //从前面添加
+		    //arr.pop();    //删除后面
+		    arr.shift();   //删除前面
+		    //arr.reverse();   //翻转字符串
+		    
+		    //var newArr = arr.concat(arr2);  //拼接两个数组     //没有保存住状态必须赋值给一个新的的变量
+		    //alert(newArr);
+	
+		    
+		    
+		    //arr.splice(1,2);    //删除
+		    arr.splice(1,0,'@@');    //插入
+		    //arr.splice(1,3,'321');   //替换
+		    //arr.sort();    //排序   首位
+		    
+		    alert(arr);
+		    alert(typeof(arr));
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

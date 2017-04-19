@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>留言板</title>
+		<script>
+		window.onload = function(){
+			var oT = document.getElementById('t1');
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('ul1');
+			
+			oBtn.onclick = function(){
+				var str = oT.value;
+				var oLi = document.createElement('li');
+				oLi.innerHTML = str+'<a href="javascript:;">删除</a>';
+				var oA = oLi.getElementsByTagName('a')[0];
+				
+				oA.onclick = function(){
+					oUl.removeChild(oLi);
+				}
+				
+				if(oUl.children[0]){
+					oUl.insertBefore(oLi,oUl.children[0]);
+				}else{
+					oUl.appendChild(oLi);
+				}
+				
+				oT.value = '';
+				oT.focus();
+			}
+			
+			
+		}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="t1" />
+	    <input type="button" value="提交" id="btn" />
+	    <ul id="ul1">
+	    	
+	    </ul>
+	</body>
+</html>

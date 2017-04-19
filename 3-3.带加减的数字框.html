@@ -1,0 +1,30 @@
+<!doctype html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>带加减的数字框</title>
+	<script>
+		window.onload = function() {
+			var oBtn1 = document.getElementById('btn1');
+			var oBtn2 = document.getElementById('btn2');
+			var oText = document.getElementById('text1');
+			var a = 0;
+			oBtn1.onclick = function() {
+				oText.value = a - 1;
+				a--;
+			}
+			oBtn2.onclick = function() {
+				oText.value = a + 1;
+				a++;
+			}
+		};
+	</script>
+</head>
+
+<body>
+	<input type="button" value=" - " id="btn1" />
+	<input type="text" value="0" style="width:60px; text-align:center" id="text1" />
+	<input type="button" value=" + " id="btn2" />
+</body>
+
+</html>

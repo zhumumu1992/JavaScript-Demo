@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>子集操作二</title>
+		<style>
+			li{width:90%;height:30px;background:#ccc;margin:10px;}
+			#li1{background:green;}
+		</style>
+		<script>
+		window.onload = function(){
+			var oLi = document.getElementById('li1');	
+			//oLi.previousElementSibling.style.background = 'red';
+			oLi.nextElementSibling.style.background = 'red';
+			
+		}	
+		</script>
+	</head>
+
+	<body>
+		<ul id="ul1">
+	    	<li></li>
+	        <li></li>
+	        <li></li>
+	        <li id="li1"></li>
+	        <li></li>
+	        <li></li>
+	    </ul>
+	</body>
+
+</html>

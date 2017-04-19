@@ -1,0 +1,32 @@
+<!doctype html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>弹出两个数中较大的数</title>
+	<script>
+		window.onload = function() {
+			var oText1 = document.getElementById('text1');
+			var oText2 = document.getElementById('text2');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function() {
+				var num1 = parseFloat(oText1.value);
+				var num2 = parseFloat(oText2.value);
+				if (num1 > num2) {
+					alert(num1);
+				} else if (num1 < num2) {
+					alert(num2);
+				} else {
+					alert('相等');
+				}
+			}
+		};
+	</script>
+</head>
+
+<body>
+	<input type="text" id="text1" value="" />
+	<input type="text" id="text2" value="" />
+	<input type="button" value="比较大小" id="btn" />
+</body>
+
+</html>

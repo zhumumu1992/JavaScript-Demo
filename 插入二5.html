@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>插入二</title>
+		<style>
+			div{width:100px;height:100px;background:red;}
+		</style>
+		<script>
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('ul1');
+			var oLi = document.getElementById('li1');
+			
+			oBtn.onclick = function(){
+				var oNew = document.createElement('li');
+				oNew.innerHTML = '000000';
+				oUl.insertBefore(oNew,oLi);	
+			}
+			
+			
+		}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="创建" id="btn" />
+	    <ul id="ul1">
+	    	<li id="li1">1111111</li>
+	    </ul>
+	</body>
+
+</html>

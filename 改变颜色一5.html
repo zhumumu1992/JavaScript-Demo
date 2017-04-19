@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>改变颜色一</title>
+		<script>
+		window.onload = function(){
+			document.body.style.background = '#ccc';
+			
+			window.onresize = function(){
+				var oW = document.documentElement.clientWidth;
+				var sColor = '';
+				if(oW > 640){
+					sColor = 'yellow';
+				}else if(oW > 320){
+					sColor = '#f90';
+				}else{
+					sColor = 'red';
+				}
+				document.body.style.background = sColor;
+			}
+			
+			
+		}	
+		</script>
+	</head>
+
+	<body id="bd">
+	</body>
+
+</html>

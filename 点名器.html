@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>点名器</title>
+		<style>
+			*{margin:0; padding:0; font-size:20px;}
+			#box{width: 100%; height: 700px; border: 1px dotted #fff; margin: 0 auto;}
+			#left{width: 35%; height: 700px; background: #000; float: left;}
+			#right{width: 45%; height: 700px; background: #000; float: right;}
+			#gd{width: 20%; height: 700px; float: left; font-weight: bold;
+				line-height: 700px; text-align: center; font-size: 36px; 
+			    font-family: "微软雅黑"; color: #000;}
+			#box span{display: block; width: 130px; height: 60px; background: #fff; 
+			          float: left; margin-left: 38px; margin-top: 40px; text-align: center;
+					  line-height: 60px; font-weight: bold; color: #000;}
+			#btn1{width: 100px; height: 50px; background: green; float: right; color: #fff;
+				  margin-top: 30px; margin-right: 40px; text-align: center;}
+			#btn2{width: 100px; height: 50px; background: red; float: left; color: #fff;
+				  margin-top: 128px; margin-left: -466px; text-align: center;}
+			
+		</style>
+		<script>	
+		window.onload = function(){
+			var abox = document.getElementsByTagName('box');
+			var aspan = document.getElementsByTagName('span');
+			var obtn1 = document.getElementById('btn1');
+			var obtn2 = document.getElementById('btn2');
+			
+			var timer = null;
+			
+			obtn1.onclick = function(){
+				obtn1.disabled = true;
+				show();
+			}
+			
+			function show(){
+				timer = setInterval(function(){
+					var i = parseInt(Math.random()*41);
+					
+					for(var j=0; j<aspan.length; j++){
+						aspan[j].style.background = '#fff';
+					}
+					aspan[i].style.background = 'red';
+				},30);
+				
+			}
+			
+			obtn2.onclick = function(){
+				obtn1.disabled = false;
+				
+				clearInterval(timer);
+				
+				for(var i=0; i<aspan.length; i++){
+					if(aspan[i].style.background == 'red'){
+						alert('(￢_￢) '+aspan[i].innerHTML+' (*^__^*)');
+					}
+				}
+				
+			}
+			
+			
+			
+		}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+		    <div id="left">
+			    <span>田舰航</span>
+			    <span>吕乐</span>
+			    <span>朱彦龙</span>
+			    <span>晋博</span>
+			    <span>潘京</span>
+			    <span>乐乐</span>
+			    <span>张刘岗</span>
+			    <span>李睿</span>
+			    <span>安东</span>
+			    <span>曹政</span>
+			    <span>苗慧龙</span>
+			    <span>凌星宇</span>
+			    <span>冯爽</span>
+			    <span>张悦</span>
+			    <span>杨子琪</span>
+			    <span>常晓东</span>
+			    <span>闫来超</span>
+			    <span>聂钟月</span>
+			    <input type="button" value="come on" id="btn1"/>
+		    </div>
+		    <div id="gd">(*^▽^*)</div>
+		    <div id="right">
+		    	<span>曹东升</span>
+			    <span>李超</span>
+			    <span>王建军</span>
+			    <span>李志伟</span>
+			    <span>王丛</span>
+			    <span>崔晓丽</span>
+			    <span>古雅茹</span>
+			    <span>邢晓亮</span>
+			    <span>崔可欣</span>
+			    <span>索小鹏</span>
+			    <span>梁震</span>
+			    <span>卫效均</span>
+			    <span>陈天民</span>
+			    <span>朱森林</span>
+			    <span>张文婷</span>
+			    <span>常瑞丽</span>
+			    <span>赵安江</span>
+			    <span>樊佳豪</span>
+			    <span>李建超</span>
+			    <span>王明帅</span>
+			    <span>闫官帅</span>
+			    <span>刘赵强</span>
+			    <span>刘斌</span>
+			    <input type="button" value="Oh ye" id="btn2"/>	
+		    </div>
+	    </div>
+	</body>
+
+</html>

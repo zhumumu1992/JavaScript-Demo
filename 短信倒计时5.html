@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>短信倒计时</title>
+		<script>
+			window.onload = function(){
+				var oBtn = document.getElementById('send');
+				var bFlag = false;
+				oBtn.onclick = function(){
+					if(bFlag){
+						return;
+					}
+					
+					bFlag = true;
+					
+					var n = 10;
+					
+					this.value = '10秒后重新发送';
+					
+					var _this = this;
+					
+					var timer = setInterval(function(){
+						n--;
+						_this.value = n + '秒后重新发送';
+						
+						if(n == 0){
+							clearInterval(timer);
+							_this.value = '重新发送';
+							bFlag = false;
+						}
+					}, 1000)
+
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="发送" id="send" />
+	</body>
+
+</html>

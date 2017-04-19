@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+
+		</style>
+		<script>
+			window.onload = function() {
+				var oT1 = document.getElementById('t1');
+				var oT2 = document.getElementById('t2');
+				var oBtn1 = document.getElementById('btn1');
+				oBtn1.onclick = function() {
+					alert(parseInt(oT1.value) + parseInt(oT2.value));
+				};
+			};
+		</script>
+	</head>
+
+	<body>
+		<input type="text" value="" id="t1">+
+		<input type="text" value="" id="t2">
+		<input type="button" value="计算" id="btn1">
+	</body>
+
+</html>

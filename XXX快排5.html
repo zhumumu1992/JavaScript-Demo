@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>快排</title>
+		<script>
+			var arr = [12,34,15,26,17,89,10,98,27,65,40];
+			
+			function findMin(arr,start){
+				var nMin = 988888;
+				var nMinIndex = -1;
+				for(var i=start; i<arr.length; i++){
+					if(arr[i]<nMin){
+						nMin = arr[i];
+						nMinIndex = i;
+					}
+				}
+				return nMinIndex;
+			}
+			
+			for(var i=0; i<arr.length; i++){
+				var index = findMin(arr,i);
+				var oTmp = arr[i];
+				arr[i] = arr[index];
+				arr[index] = oTmp;
+			}
+			
+			
+			alert(arr);
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

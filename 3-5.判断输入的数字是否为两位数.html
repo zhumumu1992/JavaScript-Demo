@@ -1,0 +1,25 @@
+<!doctype html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>判断输入的数字是否为两位数</title>
+	<script>
+		window.onload = function() {
+			var oBtn = document.getElementById('btn');
+			var oText = document.getElementById('text');
+			oBtn.onclick = function() {
+				if (oText.value > 9 && oText.value <= 99) {
+					alert('为两位数');
+				} else {
+					alert('不为二位数');
+				}
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<input type="text" id="text" value="" /><input type="button" value="判断是否为两位数" id="btn" />
+</body>
+
+</html>

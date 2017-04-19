@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>改变颜色二</title>
+		<script>
+		window.onresize = function(){
+			var oW = document.documentElement.clientWidth;
+			var oD = document.body.style;
+			
+			if(oW >= 1000){
+				oD.background = 'red';
+			}else if(oW >= 800){
+				oD.background = 'deepskyblue';
+			}else if(oW >= 600){
+				oD.background = 'lightskyblue';
+			}else{
+				oD.background = 'blue';
+			}
+			
+			 
+		}	
+		</script>
+	</head>
+
+	<body id="bd">
+	</body>
+
+</html>

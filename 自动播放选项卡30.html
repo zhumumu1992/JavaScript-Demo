@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>自动播放选项卡</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			.box{width: 380px; height: 200px; border: 1px solid red;
+				 margin: 50px auto; border-radius: 5px; text-align: center;
+				 position: relative;}
+			.box div{width: 300px; height: 150px; background: #04F1F9;
+				     margin: 10px auto; text-align: center; line-height: 150px;
+				     font-size: 36px; font-weight: bold; color: #000;
+				     display: none;}
+			a{text-decoration: none; font-size: 28px; color: pink;
+			  position: absolute; top: 0;}    
+			input{width: 45px; margin-top: 10px;}
+			.active{width: 80px; background: #0AECFF;}
+			.box .show{display: block;}
+			#prev{left: 10px;}
+			#next{right: 10px;}
+		</style>
+		<script>
+		window.onload = function(){
+			var abtn = document.getElementsByTagName('input');
+			var obox = document.getElementById('box');
+			var adiv = obox.getElementsByTagName('div');
+			var oprev = document.getElementById('prev');
+			var onext = document.getElementById('next');
+			var inow = 0;
+			
+			for(var i=0; i<abtn.length; i++){
+				abtn[i].index = i;
+				abtn[i].onclick = function(){
+					for(var i=0; i<abtn.length; i++){
+						abtn[i].className = '';
+						adiv[i].className = '';
+						
+					}
+					this.className = 'active';
+					adiv[this.index].className = 'show';
+					inow = this.index;
+					
+				}
+				
+			}
+			
+			timer = setInterval(next,2000);
+			
+			obox.onmouseover = function(){
+				clearInterval(timer);
+			}
+			
+			obox.onmouseout = function(){
+				timer = setInterval(next,2000);
+			}
+			
+			oprev.onclick = prev;
+			onext.onclick = next;
+			
+			function prev(){
+				inow--;
+				if(inow == -1){
+					inow = abtn.length-1;
+				}
+				tab();
+			}
+			
+			function next(){
+				inow++;
+				if(inow == abtn.length){
+					inow = 0;
+				}
+				tab();
+			}
+			
+			function tab(){
+				for(var i=0; i<abtn.length; i++){
+					abtn[i].className = '';
+					adiv[i].className = '';
+				}
+				abtn[inow].className = 'active';
+				adiv[inow].className = 'show';
+			}
+			
+			
+		}	
+		</script>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<a id="prev" href="javascript:;">☜</a>
+			<a id="next" href="javascript:;">☞</a>
+			<input type="button" value="轻坦" class="active" />
+			<input type="button" value="中坦" />
+			<input type="button" value="重坦" />
+			<input type="button" value="坦歼" />
+			<input type="button" value="火炮" />
+			<div class="show">五式轻战</div>
+			<div>STB-1</div>
+			<div>五式重战</div>
+			<div>四式重战</div>
+			<div>六一式</div>
+		</div>
+	</body>
+
+</html>

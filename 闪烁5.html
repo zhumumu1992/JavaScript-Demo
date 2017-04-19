@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>闪烁</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			.box{width: 400px; height: 50px; background: #ccc;
+			     margin: 0 auto; margin-top: 100px; 
+			     box-shadow: 2px 2px 12px 2px #000;}
+			.change{width: 400px; height: 50px; background: #ccc;
+			        margin: 0 auto; margin-top: 100px; 
+			        box-shadow: 5px 5px 5px 5px #ccc;}
+		</style>
+		<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var bFlag = false;
+			
+			document.onclick = function(){
+				if(bFlag){
+					return;
+				}
+				bFlag = true;
+				
+				var n = 0;
+				var timer = setInterval(function(){
+					n++;
+					if(n%2 == 1){
+						oBox.className = 'change';
+					}else{
+						oBox.className = 'box';
+					}
+					
+					if(n == 10){
+						clearInterval(timer);
+						bFlag = false;
+					}
+				}, 200)
+				
+			}
+			
+		}	
+		</script>
+	</head>
+
+	<body>
+		<div id="box" class="box">
+			
+		</div>
+	</body>
+
+</html>

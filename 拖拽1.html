@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>拖拽</title>
+		<style>
+			*{margin: 0; padding: 0;}
+			div{width: 100px; height: 100px; background: #ccc;
+				position: absolute; top: 0; left: 0;}
+		</style>
+		<script>
+			window.onload = function() {
+				var oDiv = document.getElementById('div');
+				oDiv.onmousedown = function(ev) {
+					var oEvent = ev || event;
+					var disX = oEvent.clientX - oDiv.offsetLeft;
+					var disY = oEvent.clientY - oDiv.offsetTop;
+					
+					document.onmousemove = function(ev) {
+						var oEvent = ev || event;
+						var left = oEvent.clientX - disX;
+						var top = oEvent.clientY - disY;
+						oDiv.style.left = left + 'px';
+						oDiv.style.top = top + 'px';
+					}
+					
+					document.onmouseup = function() {
+						document.onmousemove = document.onmouseup = null;
+					}
+					
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div"></div>
+	</body>
+
+</html>

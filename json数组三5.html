@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>json数组三</title>
+		<script>
+			var data = [
+			{
+				'tit':'奥巴马回见朱总',
+				'href':'www.senlin.com',
+				's-tit':[
+					{
+						'tit':'针对南海问题进行会谈',
+						'href':'abc.html',
+						'desc':[
+							{
+								'tit1':'见面叫森哥',
+								'href':'American'
+							},
+							{
+								'tit2':'没得商量',
+								'desc':'不服就干',
+								'test':[
+									{
+										'tit':'Fuck U',
+										'desc':'Oh Ye'
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+			
+			
+			alert(data[0]['s-tit'][0]['desc'][1]['test'][0]['desc']);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

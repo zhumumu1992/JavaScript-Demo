@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>鼠标跟随二</title>
+		<style>
+			*{margin: 0; padding: 0;}
+			body{width: 3000px; height: 3000px;}
+			div{width: 100px; height: 100px; background: red; 
+				position: absolute; top: 0; left: 0;}
+		</style>
+		<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			
+			document.onmousemove = function(ev){
+				var oEvent = ev || event;
+				var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+				var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+				var top = oEvent.clientY + scrollTop - oBox.offsetHeight/2;
+				var left = oEvent.clientX + scrollLeft - oBox.offsetWidth/2;
+				
+				oBox.style.top = top+'px';
+				oBox.style.left = left+'px';
+			}
+			
+		}	
+		</script>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>getByClassName</title>
+		<style>
+			body{text-align: center;}
+		</style>
+		<script>
+		window.onload = function(){
+			function getByClass(oParent,sClassName){
+				if(oParent.getElementsByClassName){
+					return oParent.getElementsByClassName(sClassName);
+				}else{
+					var aChild = oParent.getElementsByTagName('*');
+					var aRes = [];
+					for(var i=0; i<aChild.length; i++){
+						var obj = aChild[i];
+						var oTmp = obj.className.split(' ');
+						for(var j=0; j<oTmp.length; j++){
+							if(oTmp[j] == sClassName){
+								aRes.push(obj);
+							}
+						}
+					}
+					return aRes;
+				}
+				
+			}
+			
+			var val = getByClass(document,'txt');
+			for(var i=0; i<val.length; i++){
+				val[i].style.color = 'red';
+			}
+			
+		}	
+		</script>
+	</head>
+	<body>
+		<div class="box txttxt content">转眼两年时间已过去,</div>
+		<p class="content txt">该忘记的你有没有忘记,</p>
+		<p class="content txt p1">你说你最近爱上了旅行，</p>
+		<p class="content txt p1">我知道你也只是想逃避，</p>
+		<p class="content txt p1">逃避现实和过去。</p>
+	</body>
+</html>

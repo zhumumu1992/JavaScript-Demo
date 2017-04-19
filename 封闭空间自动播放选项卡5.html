@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>封闭空间自动播放选项卡</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			.box{width: 380px; height: 200px; border: 1px solid red;
+				 margin: 50px auto; border-radius: 5px; text-align: center;
+				 position: relative;}
+			.box div{width: 300px; height: 150px; background: #04F1F9;
+				     margin: 10px auto; text-align: center; line-height: 150px;
+				     font-size: 36px; font-weight: bold; color: #000;
+				     display: none;}
+			a{text-decoration: none; font-size: 28px; color: pink;
+			  position: absolute; top: 0;}    
+			input{width: 45px; margin-top: 10px;}
+			.active{width: 80px; background: #0AECFF;}
+			.box .show{display: block;}
+			#prev{left: 10px;}
+			#next{right: 10px;}
+		</style>
+		<script>
+		window.onload = function(){
+			var aBtn = document.getElementsByTagName('input');
+			var oBox = document.getElementById('box');
+			var aDiv = oBox.getElementsByTagName('div');
+			var oPrev = document.getElementById('prev');
+			var oNext = document.getElementById('next');
+			var iNow = 0;
+			
+			for(var i=0; i<aBtn.length; i++){
+				(function(index){
+					aBtn[i].onclick = function(){
+						for(var i=0; i<aBtn.length; i++){
+							aBtn[i].className = '';
+							aDiv[i].className = '';
+						}
+						aBtn[index].className = 'active';
+						aDiv[index].className = 'show';
+						iNow = index;
+					}
+					
+				})(i)
+				
+			}
+			
+			oPrev.onclick = prev;
+			oNext.onclick = next;
+			
+			function prev(){
+				iNow--;
+				if(iNow == -1){
+					iNow = aBtn.length-1;
+				}
+				tab();
+			}
+			
+			function next(){
+				iNow++;
+				if(iNow == aBtn.length){
+					iNow = 0;
+				}
+				tab();
+			}
+			
+			function tab(){
+				for(var i=0; i<aBtn.length; i++){
+					aBtn[i].className = '';
+				    aDiv[i].className = '';
+				}
+				aBtn[iNow].className = 'active';
+				aDiv[iNow].className = 'show';
+			}
+			
+			timer = setInterval(next,2000);
+			
+			oBox.onmouseover = function(){
+				clearInterval(timer);
+			}
+			
+			oBox.onmouseout = function(){
+				timer = setInterval(next,2000);
+			}
+			
+		}	
+		</script>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<a id="prev" href="javascript:;">☜</a>
+			<a id="next" href="javascript:;">☞</a>
+			<input type="button" value="远程" class="active" />
+			<input type="button" value="近战" />
+			<input type="button" value="奶妈" />
+			<input type="button" value="坦克" />
+			<input type="button" value="刺客" />
+			<div class="show">唐门</div>
+			<div>太白</div>
+			<div>天香</div>
+			<div>神威</div>
+			<div>五毒</div>
+		</div>
+	</body>
+
+</html>

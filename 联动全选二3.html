@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>联动全选二</title>
+		<script>
+			window.onload = function() {
+				var obtn = document.getElementById('btn')
+				var obox = document.getElementById('box')
+				var ainput = obox.getElementsByTagName('input')
+				console.log(obtn)
+				
+				obtn.onclick = function() {
+					for(var i = 0; i < ainput.length; i++) {
+						if(obtn.checked == true) {
+							ainput[i].checked = true;
+						} else {
+							ainput[i].checked = false;
+						}
+					}
+				}
+
+//			    for (var i=0; i<ainput.length; i++){
+//					ainput[i].onclick = function(){
+//						var n = 0;
+//						for (var i=0; i<ainput.length; i++){
+//							console.log(ainput[i])
+//							if (ainput[i].checked == true){
+//								n++;
+//							}
+//						}
+//						console.log(n)
+//						if (n == ainput.length){
+//							obtn.checked = true;
+//						}else{
+//							obtn.checked = false;
+//						}
+//					}
+//				}
+
+				for(var i = 0; i < ainput.length; i++) {
+					ainput[i].onclick = function() {
+						for(var i = 0; i < ainput.length; i++) {
+							console.log(ainput[i])
+							if(ainput[i].checked == false) {
+								obtn.checked = false
+								return;
+							} else {
+								obtn.checked = true
+							}
+						}
+					}
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<hi>联动全选</hi>
+		<input type="checkbox" id="btn" />
+		<hr />
+		<div id="box">
+			<input type="checkbox" class="check1" /><br />
+			<input type="checkbox" class="check2" /><br />
+			<input type="checkbox" class="check3" /><br />
+			<input type="checkbox" class="check4" /><br />
+			<input type="checkbox" class="check5" /><br />
+			<input type="checkbox" class="check6" /><br />
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>弹出5的倍数</title>
+	<script>
+		window.onload = function() {
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function() {
+				for (i = 0; i < 500; i++) {
+					if (i % 5 == 0) {
+						alert(i);
+					}
+				}
+			}
+		};
+	</script>
+
+</head>
+
+<body>
+	<input type="button" value="点击" id="btn" />
+</body>
+
+</html>

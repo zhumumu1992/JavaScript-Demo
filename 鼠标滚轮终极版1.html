@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>鼠标滚轮终极版</title>
+		<style>
+			div{width:100px; height:100px; background:#ccc;}
+		</style>
+		<script>
+			window.onload = function(){
+				var oDiv = document.getElementById('box');
+
+				addWheel(oDiv, function(down){
+					if(down){
+						alert('下');
+					}else{
+						alert('上');
+					}
+				})
+
+				function addWheel(obj, fn){
+					// 加事件
+					if(window.navigator.userAgent.toLowerCase().indexOf('firefox') != -1) {
+						// DOMMouseScroll  FF
+						obj.addEventListener('DOMMouseScroll', _wheel, false);
+					} else {
+						// onmousewheel IE chrome
+						obj.onmousewheel = _wheel;
+					}
+
+					// 统一 down
+					function _wheel(ev){
+						var oEvent = ev || event;
+						if(oEvent.wheelDelta){
+							var down = oEvent.wheelDelta > 0 ? false : true;
+						} else {
+							var down = oEvent.detail > 0 ? true : false;
+						}
+						// 事件触发调用，down统一了
+						fn(down);
+					}
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+
+</html>

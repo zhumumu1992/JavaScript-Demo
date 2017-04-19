@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>选项卡一</title>
+		<style>
+		    *{margin:0;padding:0;}
+		    div{width:200px; height:200px; background:#ccc;
+		        border:1px solid red; text-align:center;
+		        line-height:200px; font-size:36px;
+		        font-weight:bold; display:none;}
+		    .active{background:#ccc; width:96px;}
+		    .show{display:block;}
+		</style>
+		<script>
+		window.onload = function(){
+			var abtn = document.getElementsByTagName('input');
+			var adiv = document.getElementsByTagName('div');
+			
+			for(var i=0; i<abtn.length; i++){
+				abtn[i].index = i;
+				abtn[i].onclick = function(){
+					for(var i=0; i<abtn.length; i++){
+						abtn[i].className = '';
+						adiv[i].className = '';
+						
+					}
+					this.className = 'active';
+					adiv[this.index].className = 'show';
+					
+				}
+				
+			}
+			
+			
+		}
+		</script>
+
+	</head>
+
+	<body>
+		<input type="button" value="梦幻西游" class="active"/>
+		<input type="button" value="大唐" />
+		<input type="button" value="魔王" />
+		<div class="show">龙宫</div>
+		<div>狮驼</div>
+		<div>方寸</div>
+	</body>
+
+</html>

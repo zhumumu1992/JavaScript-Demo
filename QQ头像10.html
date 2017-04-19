@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>QQ头像</title>
+		<style>
+			*{margin: 0; padding: 0;}
+			#head{width: 100px; height: 100px; 
+			      background: #ccc;float: left;
+			      margin: 70px;}
+			#detail{width: 200px; height: 200px;
+			        background: #f90;float: left;
+			        margin-top: 70px; display: none;}
+		</style>
+		<script>
+		    window.onload = function(){
+		    	var oHead = document.getElementById('head');
+		    	var oDetail = document.getElementById('detail');
+		    	var timer = null;
+		    	
+		    	oHead.onmouseover = oDetail.onmouseover = function(){
+		    		clearTimeout(timer);
+		    		timer = setTimeout(function(){
+		    			oDetail.style.display = 'block';
+		    		}, 200)
+		    	}
+		    	
+		    	oHead.onmouseout = oDetail.onmouseout = function(){
+		    		clearTimeout(timer);
+		    		timer = setTimeout(function(){
+		    			oDetail.style.display = 'none';
+		    		}, 200)
+		    	}
+		    	
+		    	
+		    	
+		    }
+		</script>
+	</head>
+
+	<body>
+		<div id="head"></div>
+		<div id="detail"></div>
+	</body>
+
+</html>
